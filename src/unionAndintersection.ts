@@ -1,4 +1,4 @@
-// Union => | (pipe) symbol is used for union type
+// Union => | (pipe) symbol is used for union type.
 
 type UserRole = "admin" | "user" | "guest";
 
