@@ -9,17 +9,16 @@ someValue = "Hello, TypeScript!";
 //console.log((someValue as number).toFixed(2)); // eta error dibe karon bolsi any ar disi string but ami number er method use korte chacchi tai error dibe abar suggestion o dibe
 console.log((someValue as string).split(" ")); // ekhaneo ami typescript k bujhiye dicchi je eta string type er ekta variable tai ami string er method use korte parbo
 
-const kgToGram = (input: number | string)=>{
-    if(typeof input === "number"){
-        return input * 1000;
-    }
-    else if(typeof input === "string"){
-        const [value] = input.split(" ");
-        return Number(value)* 1000;
-    }
-    else{
-        throw new Error("Invalid input type");
-    }
-}
-console.log(kgToGram(5)); // Output: 5000
+const kgToGram = (input: number | string): string | number | undefined => {
+  if (typeof input === "number") {
+    return input * 1000;
+  } else if (typeof input === "string") {
+    const [value] = input.split(" ");
+    return Number(value) * 1000;
+  } else {
+    throw new Error("Invalid input type");
+  }
+};
+const res1 = kgToGram(5) as Number; // Output: 5000. --> jodi sure na hoi tahole type assertion amra use korbona
+console.log(res1);
 console.log(kgToGram("10 kg")); // Output: 10000
